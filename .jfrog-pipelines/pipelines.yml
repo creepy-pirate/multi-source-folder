@@ -2,8 +2,8 @@ resources:
   - name: myRepo_2
     type: GITRepo
     configuration:
-      path: deepikasl/multi-source-folder
-      gitProvider: deepikaGithub
+      path: creepy-pirate/multi-source-folder
+      gitProvider: deepak_git
       branches:
         include: ^releasePipeline$     
       buildOn:
@@ -11,8 +11,8 @@ resources:
   - name: sample_GitRepo
     type: GitRepo
     configuration:
-      gitProvider: deepikaGithub
-      path: deepikasl/multi-source-folder
+      gitProvider: deepak_git
+      path: creepy-pirate/multi-source-folder
       branches:
         include: {{gitBranch}}
 #       pullRequestSourceBranches:
@@ -45,16 +45,16 @@ pipelines:
           onExecute:
             - echo "executing"
 
-      - name: docker_build
-        type: Bash
-        configuration:
-          inputResources:
-            - name: sample_GitRepo
-          integrations:
-            - name: deepikaArt 
-        execution:
-          onExecute:
-            - echo "executing docker_build"
+      # - name: docker_build
+      #   type: Bash
+      #   configuration:
+      #     inputResources:
+      #       - name: sample_GitRepo
+      #     integrations:
+      #       - name: deepikaArt 
+      #   execution:
+      #     onExecute:
+      #       - echo "executing docker_build"
 
       # - name: docker_build
       #   type: DockerBuild
